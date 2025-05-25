@@ -1,0 +1,42 @@
+Title: Flutter Mobile App Firebase Integration Report
+Name: Muhammad Zain
+Registration Number: 2022-ag-8603
+Department: BS Computer Science
+
+Project Overview:
+I developed a mobile application using the Flutter framework. Initially, the app was designed as a simple notes app that allowed users to input and save information. Later, I enhanced the app to collect and store more structured data from users.
+
+Firebase Integration:
+To store and manage the app’s data in the cloud, I integrated Firebase into the project. Below are the key steps involved:
+
+1. Firebase Project Setup:
+I created a new project on the Firebase Console, added my app’s package name, and downloaded the google-services.json file. This file was added to the android/app/ directory of my Flutter project.
+
+
+2. Adding Firebase Dependencies:
+In the pubspec.yaml file, I added the required Firebase packages, such as firebase_core and cloud_firestore, and ran flutter pub get to install them.
+
+
+3. Initializing Firebase:
+In the main.dart file, I initialized Firebase using the following commands:
+
+WidgetsFlutterBinding.ensureInitialized();
+await Firebase.initializeApp();
+
+
+4. Storing Data to Firestore:
+I used TextEditingController to get user input and then stored the data into Firebase Cloud Firestore using:
+
+FirebaseFirestore.instance.collection('users').add({
+  'title': titleController.text,
+  'note': noteController.text,
+});
+
+
+5. Reading Data from Firestore:
+I used StreamBuilder in Flutter to fetch and display the stored data from Firebase in real time.
+
+
+
+Conclusion:
+This project demonstrates how to connect a Flutter app with Firebase for real-time cloud data storage. Firebase made it easy to handle backend services without the need for managing a custom server. The app is now capable of saving and retrieving user input efficiently.
